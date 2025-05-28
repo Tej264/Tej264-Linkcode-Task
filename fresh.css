@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    color: #232f3e;
+}
+
+/* Navbar styles */
+nav {
+    background: #232f3e;
+    color: white;
+    padding: 0 32px;
+    border-bottom: 2px solid #ffd814;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+nav h2 {
+    margin: 0;
+    font-size: 2rem;
+    color: #ffd814;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+.navbar-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+nav input[type="search"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 220px;
+    font-size: 1rem;
+    margin: 0;
+}
+
+nav select {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background 0.2s;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    background: #37475a;
+    color: #ffd814;
+}
+
+/* Hero Banner */
+.hero-banner {
+    background: #fddede;
+    padding: 36px 0 24px 0;
+    text-align: center;
+    border-radius: 0 0 18px 18px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.hero-banner h2 {
+    font-size: 2rem;
+    margin: 0 0 12px 0;
+    color: #232f3e;
+}
+
+.hero-banner img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Card Grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px 22px;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    padding: 0 24px;
+}
+
+/* Product Card */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    padding: 18px 12px 18px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 320px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    transform: translateY(-6px) scale(1.03);
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    margin: 0 0 12px 0;
+    color: #232f3e;
+    text-align: center;
+}
+
+.card img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    border-radius: 6px;
+    margin: 6px 0;
+    background: #f3f3f3;
+}
+
+@media (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 8px;
+        gap: 10px;
+    }
+    .navbar-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+    }
+    nav ul {
+        gap: 10px;
+    }
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+        padding: 0 4px;
+    }
+    nav {
+        padding: 10px 2px 6px 2px;
+    }
+    .hero-banner {
+        padding: 18px 0 12px 0;
+    }
+}

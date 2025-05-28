@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazon Pay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="common.css">
+    <script defer src="cart.js"></script>
+   
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Amazon Pay</div>
+        <div class="nav-links">
+            <a href="Amazon_clone.html">Home</a>
+            <a href="amazon_pay.html">Amazon Pay</a>
+            <a href="seller.html">Best Sellers</a>
+            <a href="Amazon_sell.html">Sell</a>
+            <a href="login.html">Login</a>
+             <a id="cart" style="cursor:pointer; margin-left:24px;">
+                🛒 Cart (<span id="cart-count">0</span>)
+            </a>
+        </div>
+        <!-- Off-canvas cart menu -->
+    <div id="offcanvas-cart" class="offcanvas-cart">
+        <div class="offcanvas-header">
+            <span>🛒 Cart</span>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+        <ul id="cart-items" class="cart-items"></ul>
+        <div id="cart-totals"></div>
+    </div>
+    <div id="offcanvas-overlay" class="offcanvas-overlay"></div>
+        </div>
+    </div>
+    <div class="hero">
+        <h1>Amazon Pay</h1>
+        <p>Fast, easy, and secure payments for shopping, bills, and more.</p>
+    </div>
+    <div class="content">
+        <div class="section-title">What can you do with Amazon Pay?</div>
+        <div class="pay-grid">
+            <div class="pay-card">
+                <img src="https://img.icons8.com/ios-filled/100/000000/online-money-transfer.png" alt="Send Money">
+                <div class="pay-title">Send Money</div>
+                <div class="pay-desc">Transfer money instantly to friends and family.</div>
+                <button class="pay-btn">Send Now</button>
+            </div>
+            <div class="pay-card">
+                <img src="https://img.icons8.com/ios-filled/100/000000/bill.png" alt="Pay Bills">
+                <div class="pay-title">Pay Bills</div>
+                <div class="pay-desc">Recharge your mobile, pay electricity, water, and gas bills.</div>
+                <button class="pay-btn">Pay Bills</button>
+            </div>
+            <div class="pay-card">
+                <img src="https://img.icons8.com/ios-filled/100/000000/credit-card.png" alt="Shop Online">
+                <div class="pay-title">Shop Online</div>
+                <div class="pay-desc">Use Amazon Pay balance for fast checkout on Amazon and partner sites.</div>
+                <button class="pay-btn">Shop Now</button>
+            </div>
+            <div class="pay-card">
+                <img src="https://img.icons8.com/ios-filled/100/000000/discount--v1.png" alt="Offers">
+                <div class="pay-title">Exclusive Offers</div>
+                <div class="pay-desc">Get cashback and discounts on payments and shopping.</div>
+                <button class="pay-btn">View Offers</button>
+            </div>
+            <div class="pay-card">
+                <img src="https://img.icons8.com/ios-filled/100/000000/lock-2.png" alt="Secure">
+                <div class="pay-title">100% Secure</div>
+                <div class="pay-desc">Your transactions are protected with advanced security.</div>
+                <button class="pay-btn">Learn More</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

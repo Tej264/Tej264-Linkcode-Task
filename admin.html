@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - Amazon Clone</title>
+    <link rel="stylesheet" href="admin.css">
+    <script defer src="admin.js"></script>
+   
+</head>
+<body>
+    <nav style="background:#232f3e; color:white; padding:18px 32px; display:flex; align-items:center; justify-content:space-between;">
+        <h2 style="margin:0;">Amazon Admin Panel</h2>
+        <a href="Amazon_clone.html" style="color:#ffd814; text-decoration:none; font-weight:bold;">Back to Home</a>
+    </nav>
+
+    <!-- Admin Login Section -->
+    <div id="login-section" class="admin-section">
+        <h3>Admin Login</h3>
+        <input type="password" id="admin-password" placeholder="Enter admin password" style="width:100%;padding:8px;margin-bottom:12px;">
+        <button id="login-btn" style="width:100%;padding:10px 0;background:#232f3e;color:#fff;border:none;border-radius:5px;font-size:1rem;cursor:pointer;">Login</button>
+        <p id="login-error"></p>
+    </div>
+
+    <!-- Admin Panel Section (hidden by default) -->
+    <div id="admin-panel" class="hidden">
+        <div class="admin-sections-row">
+            <!-- Manage Products -->
+            <div class="admin-section">
+                <h3>Manage Products</h3>
+                <form id="add-product-form" style="display:flex;flex-direction:column;gap:10px;">
+                    <input type="text" id="product-name" placeholder="Product Name" required>
+                    <input type="number" id="product-price" placeholder="Price" required>
+                    <input type="text" id="product-img" placeholder="Image URL" required>
+                    <button type="submit" style="background:#232f3e;color:#fff;border:none;border-radius:5px;padding:10px 0;font-size:1rem;cursor:pointer;">Add Product</button>
+                </form>
+                <ul id="product-list" class="product-list" style="margin-top:18px;"></ul>
+            </div>
+
+            <!-- Cart Items (For Demo) -->
+            <div class="admin-section">
+                <h3>Cart Items (For Demo)</h3>
+                <ul id="admin-cart-list"></ul>
+            </div>
+
+            <!-- Monitor User Logins Section -->
+            <div class="admin-section">
+                <h3>Monitor User Logins</h3>
+                <ul id="user-list" class="user-list"></ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

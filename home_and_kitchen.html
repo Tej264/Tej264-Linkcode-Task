@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazon Home & Kitchen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="common.css">
+    <script defer src="cart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8fb;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background: #232f3e;
+            color: #fff;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar .logo {
+            font-size: 1.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #ff9900;
+        }
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            background: #ff9900;
+            color: #232f3e;
+            text-align: center;
+            padding: 50px 20px 30px 20px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+        }
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 16px;
+        }
+        .section-title {
+            color: #232f3e;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+        .item-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 16px;
+            text-align: center;
+        }
+        .item-card img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        .item-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 6px;
+        }
+        .item-desc {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        .buy-btn {
+            margin-top: 10px;
+            background: #232f3e;
+            color: #fff;
+            border: none;
+            padding: 8px 0;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+        .buy-btn:hover {
+            background: #131921;
+        }
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Amazon Home & Kitchen</div>
+        <div class="nav-links">
+            <a href="Amazon_clone.html">Home</a>
+            <a href="mobile.html">Mobiles</a>
+            <a href="computers.html">Computers</a>
+            <a href="books.html">Books</a>
+            <a href="headphones.html">Headphones</a>
+            <a href="appliances.html">Appliances</a>
+            <a href="home_kitchen.html">Home & Kitchen</a>
+            <a href="seller.html">Best Sellers</a>
+            <a href="Amazon_sell.html">Sell</a>
+            <a href="login.html">Login</a>
+             <a id="cart" style="cursor:pointer; margin-left:24px;">
+                🛒 Cart (<span id="cart-count">0</span>)
+            </a>
+        </div>
+        <!-- Off-canvas cart menu -->
+    <div id="offcanvas-cart" class="offcanvas-cart">
+        <div class="offcanvas-header">
+            <span>🛒 Cart</span>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+        <ul id="cart-items" class="cart-items"></ul>
+        <div id="cart-totals"></div>
+    </div>
+    <div id="offcanvas-overlay" class="offcanvas-overlay"></div>
+        </div>
+    </div>
+    <div class="hero">
+        <h1>Home & Kitchen Essentials</h1>
+        <p>Upgrade your space with the best in home decor, storage, and kitchenware.</p>
+    </div>
+    <div class="content">
+        <div class="section-title">Top Home & Kitchen Picks</div>
+        <div class="item-grid">
+            <div class="item-card" data-name="Non-Stick Cookware Set" data-price="₹4500">
+                <img src="asset/prestige non-stick cookware.jpg" alt="Cookware Set">
+                <div class="item-title">Non-Stick Cookware Set</div>
+                <div class="item-desc">5 Pieces | Induction Friendly | PFOA Free</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="item-card" data-name="Vacuum Cleaner" data-price="₹8000">
+                <img src="asset/Plastic Storage Containers.jpeg" alt="Storage Boxes">
+                <div class="item-title">Plastic Storage Containers</div>
+                <div class="item-desc">Set of 6 | Airtight | BPA Free</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="item-card" data-name="Wall Clock" data-price="₹1500">
+                <img src="asset/Vintage Wall Clock.jpeg" alt="Wall Clock">
+                <div class="item-title">Vintage Wall Clock</div>
+                <div class="item-desc">12 Inch | Silent Movement | Decorative</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="item-card" data-name="Dinner Set" data-price="₹3500">
+                <img src="asset/Melamine Dinner Set.jpeg" alt="Dinner Set">
+                <div class="item-title">Melamine Dinner Set</div>
+                <div class="item-desc">32 Pieces | Elegant Design | Durable</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="item-card" data-name="Water Purifier" data-price="₹12000">
+                <img src="asset/AquaSure Water Purifier.jpeg" alt="Water Purifier">
+                <div class="item-title">AquaSure Water Purifier</div>
+                <div class="item-desc">RO+UV | 7L Capacity | Wall Mountable</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
