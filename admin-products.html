@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Manage Products</title>
+    <link rel="stylesheet" href="admin-common.css">
+</head>
+<body>
+    <nav>
+        <h2>Manage Products</h2>
+        <a href="admin.html">Back to Admin Panel</a>
+    </nav>
+    <main>
+        <form id="add-product-form">
+            <input type="text" id="product-name" placeholder="Product Name" required>
+            <input type="number" id="product-price" placeholder="Price" required>
+            <input type="text" id="product-img" placeholder="Image URL" required>
+            <button type="submit">Add Product</button>
+        </form>
+        <ul id="product-list"></ul>
+    </main>
+    <script>
+    // Fetch and display products
+    async function loadProducts() {
+        const res = await fetch('/api/products');
+        const products = await res.json();
+        const list = document.getElementById('product-list');
+        list.innerHTML = '';
+        products.forEach((p) => {
+            const li = document.createElement('li');
+            li.innerHTML = `${p.name} - ₹${p.price} <button data-name="${p.name}" class="remove-btn">Remove</button>`;
+            list.appendChild(li);
+        });
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+            btn.onclick = async function() {
+                await fetch('/api/products', {
+                    method: 'DELETE',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ name: btn.dataset.name })
+                });
+                loadProducts();
+            };
+        });
+    }
+    document.getElementById('add-product-form').onsubmit = async function(e) {
+        e.preventDefault();
+        const name = document.getElementById('product-name').value;
+        const price = document.getElementById('product-price').value;
+        const img = document.getElementById('product-img').value;
+        await fetch('/api/products', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ name, price, img })
+        });
+        this.reset();
+        loadProducts();
+    };
+    loadProducts();
+    </script>
+</body>
+</html>

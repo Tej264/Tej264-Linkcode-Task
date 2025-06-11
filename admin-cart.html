@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Cart Items</title>
+    <link rel="stylesheet" href="admin-common.css">
+</head>
+<body>
+    <nav>
+        <h2>Cart Items (For Demo)</h2>
+        <a href="admin.html">Back to Admin Panel</a>
+    </nav>
+    <main>
+        <ul id="cart-list"></ul>
+    </main>
+    <script>
+function loadCart() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const list = document.getElementById('cart-list');
+    list.innerHTML = '';
+    cart.forEach((item, i) => {
+        const li = document.createElement('li');
+        li.innerHTML = `${item.name} - ₹${item.price} <button data-i="${i}" class="remove-btn">Remove</button>`;
+        list.appendChild(li);
+    });
+    // Remove cart item
+    document.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.onclick = function() {
+            cart.splice(btn.dataset.i, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        };
+    });
+}
+loadCart();
+</script>
+</body>
+</html>

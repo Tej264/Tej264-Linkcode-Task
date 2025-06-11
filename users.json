@@ -1,0 +1,51 @@
+[
+  {
+    "name": "tejas",
+    "mobile": "1234567890",
+    "email": "tejas@gmail.com",
+    "password": "tejas123",
+    "loggedIn": false
+  },
+  {
+    "name": "shubham",
+    "mobile": "9087654321",
+    "email": "shubham@gmail.com",
+    "password": "shubh123",
+    "loggedIn": false
+  },
+  {
+    "name": "sanket45797542",
+    "mobile": "12345678901231231234",
+    "email": "sanket@gmail.com",
+    "password": "sanket123",
+    "loggedIn": false
+  },
+  {
+    "name": "prince",
+    "mobile": "99998887776",
+    "email": "prince@gmail.com",
+    "password": "prince123",
+    "loggedIn": false
+  },
+  {
+    "name": "gaurav",
+    "mobile": "654325123467",
+    "email": "gaurav@gmail.com",
+    "password": "gaurav123",
+    "loggedIn": false
+  },
+  {
+    "name": "payal bute",
+    "mobile": "9405256191",
+    "email": "payal1@gmail.com",
+    "password": "payal123",
+    "loggedIn": false
+  },
+  {
+    "name": "tanya",
+    "mobile": "4325675423",
+    "email": "tanya@gmail.com",
+    "password": "tanya123",
+    "loggedIn": true
+  }
+]

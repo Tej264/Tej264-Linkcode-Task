@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Details</title>
+    <link rel="stylesheet" href="admin-common.css">
+    <style>
+        .payment-container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 32px 28px 28px 28px;
+        }
+        .product-summary {
+            margin-bottom: 24px;
+            padding: 12px;
+            background: #f7f7fa;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .product-summary img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+        .payment-form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        .payment-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 14px;
+            border-radius: 4px;
+            border: 1px solid #bbb;
+        }
+        .payment-form button {
+            width: 100%;
+            padding: 10px 0;
+            background: #232f3e;
+            color: #ffd814;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Payment Details</h2>
+        <div class="product-summary" id="product-summary"></div>
+        <form class="payment-form" id="payment-form">
+            <label for="card-name">Cardholder Name</label>
+            <input type="text" id="card-name" required>
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" maxlength="16" required>
+            <label for="expiry">Expiry Date</label>
+            <input type="text" id="expiry" placeholder="MM/YY" required>
+            <label for="cvv">CVV</label>
+            <input type="password" id="cvv" maxlength="4" required>
+            <button type="submit">Pay Now</button>
+        </form>
+        <div id="payment-message" style="margin-top:16px; text-align:center;"></div>
+    </div>
+    <script>
+        // Display selected product
+        const product = JSON.parse(localStorage.getItem('selectedProduct'));
+        const summary = document.getElementById('product-summary');
+        if (product) {
+            summary.innerHTML = `
+                <img src="${product.img || ''}" alt="${product.name}">
+                <div><strong>${product.name}</strong></div>
+                <div style="color:#ff9900;">₹${product.price}</div>
+            `;
+        } else {
+            summary.innerHTML = '<div>No product selected.</div>';
+            document.getElementById('payment-form').style.display = 'none';
+        }
+
+        // Handle payment form submission
+        document.getElementById('payment-form').onsubmit = function(e) {
+            e.preventDefault();
+            document.getElementById('payment-message').textContent = 'Payment Successful! Thank you for your purchase.';
+            // Optionally, remove the product from cart here
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (product) {
+                cart = cart.filter(item => !(item.name === product.name && item.price === product.price));
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+            setTimeout(() => {
+                window.location.href = 'Amazon_clone.html';
+            }, 2000);
+        };
+    </script>
+</body>
+</html>

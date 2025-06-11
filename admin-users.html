@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - User Logins</title>
+    <link rel="stylesheet" href="admin-common.css">
+</head>
+<body>
+    <nav>
+        <h2>Monitor User Logins</h2>
+        <a href="admin.html">Back to Admin Panel</a>
+    </nav>
+    <main>
+        <h3>User Login Status</h3>
+        <ul id="user-list"></ul>
+    </main>
+    <script>
+    // Fetch and display users
+    async function loadUsers() {
+        const res = await fetch('/api/users');
+        const users = await res.json();
+        const list = document.getElementById('user-list');
+        list.innerHTML = '';
+        let anyLoggedIn = false;
+        users.forEach(u => {
+            const isLoggedIn = u.loggedIn;
+            if (isLoggedIn) anyLoggedIn = true;
+            list.innerHTML += `
+                <li>
+                    <strong>${u.name}</strong> (${u.email || u.mobile}) 
+                    - <span style="color:${isLoggedIn ? 'green' : 'red'};">
+                        ${isLoggedIn ? 'Logged In' : 'Logged Out'}
+                      </span>
+                    ${u.isAdmin ? '<span style="color:#232f3e; font-weight:bold;"> [Admin]</span>' : ''}
+                    ${isLoggedIn ? `<button class="logout-user-btn" data-email="${u.email || ''}" data-mobile="${u.mobile || ''}">Log Out</button>` : ''}
+                </li>
+            `;
+        });
+        if (!anyLoggedIn) {
+            list.innerHTML += `<li style="color:#888;">No users are currently logged in.</li>`;
+        }
+        // Add event listeners for logout buttons
+        document.querySelectorAll('.logout-user-btn').forEach(btn => {
+            btn.onclick = async function() {
+                await fetch('/api/logout-user', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: btn.dataset.email, mobile: btn.dataset.mobile })
+                });
+                loadUsers();
+            };
+        });
+    }
+    // Call loadUsers on page load
+    loadUsers();
+    </script>
+</body>
+</html>

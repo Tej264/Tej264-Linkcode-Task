@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon_clone</title>
+    <link rel="stylesheet" href="Amazon.css">
+    
+    <script defer src="login_status.js"></script>
+    <script src="server.js"></script>
+    <script defer src="cart.js"></script>
+    <script defer src="product.js"></script>
+</head>
+<body>
+   
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="logo">amazon.in</div>
+    <div class="location">Deliver to Pune <br><small>Update Location</small></div>
+    <select class="dropdown">
+      <option value="all">All</option>
+    </select>
+    <input type="text" placeholder="Search Amazon.in" class="search-box">
+    <button class="search-button">🔍</button>
+    <div class="lang">
+<select name="" id="Language">
+            <option value="" selected disabled hidden> 🇮🇳 EN </option>
+            <option value="">Eng</option>
+            <option value="">marathi</option>
+            <option value="">Japanise</option>
+            <option value="">hindi </option>
+        </select>
+</div>
+    <div class="account">Hello, Sign in<br><strong><li><select name="" id="account-select" onchange="if(this.value) window.location.href=this.value;">
+    <option value="" selected disabled hidden> Accounts & List</option>
+    <option value="login.html">Login</option>
+    <option value="Registration.html">Registration</option>
+    <option value="">Setting</option>
+    <option value="admin.html">Admin</option>
+                 </select>
+            </li></strong>
+  </div>
+    <div class="returns">Returns<br><strong>& Orders</strong></div>
+    <div class="cart">
+  <h1 id="cart" style="cursor:pointer;">🛒 Cart (<span id="cart-count">0</span>)</h1>
+</div>
+
+<!-- Off-canvas Cart Menu -->
+<div id="offcanvas-cart" class="offcanvas-cart">
+  <div class="offcanvas-header">
+    <span>🛒 Cart</span>
+    <button id="close-cart" class="close-btn">&times;</button>
+  </div>
+  <ul id="cart-items" class="cart-items"></ul>
+  <div id="cart-totals"></div>
+</div>
+<div id="offcanvas-overlay" class="offcanvas-overlay"></div>
+  </header>
+
+  <!-- Nav Bar -->
+  <nav class="navbar">
+   <ul id="nav-list">
+            <li><a href="/All"> ☰All</a></li>
+            <li><a href="/fresh.html">Fresh</a></li>
+            <li><a href="/mx_player.html">Mx Player</a></li>
+            <li><a href="/Amazon_sell.html">Sell</a></li>
+            <li><a href="/seller.html">Best Seller</a></li>
+            <li><a href="/mobile.html">Mobile</a></li>
+            <li><a href="/Deals.html">Todays Deals</a></li>
+            <li><a href="/Customer.html">Customer Service</a></li>
+            <li><a href="/Realese.html">New Release</a></li>
+            <li><a href="/fashion.html">Fashion</a></li>
+            <li><a href="/Electronics.html">Electronics</a></li>
+            <li><a href="/Amazon_pay.html">Amazon pay</a></li>
+            <li><a href="/home_and_kitchen.html">Home & kitchen</a></li>
+            <li><a href="/computers.html">Computers</a></li>
+            <li><a href="/books.html">Books</a></li>
+            <li><a href="/">Cars & Motorbikes</a></li>
+            <li><a href="/headphone.html">headphone</a></li>
+            <li><a href="/homeappliances.html">Home Improvement </a></li>
+            <li><a href="">Gift Cards</a></li>
+            <li><a href="">Grocery & Gorment Food</a></li>
+            <li><a href="">Health Household & PersonalCare</a></li>
+        </ul>
+  </nav>
+
+
+  <section class="hero">
+  <div class="hero-text">
+    <h1>Welcome to Amazon Clone</h1>
+    <p>Shop the best products at the best prices!</p>
+  </div>
+  <div class="hero-image">
+    <img src="asset/beauty_products.jpeg" alt="Hero Image">
+  </div>
+</section>
+
+  <main class="categories">
+  <div class="category" >
+    <h3>Automotive essentials | Up to 60% off</h3>
+    <ul>
+      <img src="asset/Automative_Accessories.jpeg" alt="">
+      <li>Cleaning accessories</li>
+      <img src="asset/tyre.jpeg" alt="">
+      <li>Tyre & rim care</li>
+      <a href="">see more</a>
+    </ul>
+  </div>
+
+  <div class="category" >
+    <h3>Refurbished Products</h3>
+    <ul>
+      <img src="asset/laptop.jpeg" alt="laptop">
+      <li>Laptops</li>
+      <img src="asset/smartphone2.jpeg" alt="smartphone">
+      <li>Mobiles</li>
+      <img src="asset/samsung_brand.jpeg" alt="television">
+      <li>Televisions</li>
+      <img src="asset/Ac1.jpeg" alt="air_conditioner">
+      <li>Air Conditioners</li>
+      <a href="Realese.html">see more</a>
+    </ul>
+  </div>
+
+  <div class="category" >
+    <h3>Best Selling Laptop</h3>
+    <img src="asset/laptop.jpeg" alt="">
+    <p>View top models and deals</p>
+    <img src="asset/lap1.webp" alt="">
+    <p>Check out the latest laptops</p>
+    
+    <a href="computers.html">see more</a>
+  </div>
+
+  <div class="category" >
+    <h3>Best Selling Headphones</h3>
+    <img src="asset/headphone.jpeg" alt="headphones">
+    <p>Check latest headphones</p>
+    <img src="asset/headphone1.jpeg" alt="">
+    <p>View top models and deals</p>
+    <a href="headphone.html">see more</a>
+  </div>
+
+  <div class="category" >
+    <h3>Top Smartphone Brands</h3>
+    <ul>
+      <img src="asset/apple_brand.jpeg" alt="">
+      <li>Apple | Up to 20%</li>
+      <img src="asset/samsung_brand.jpeg" alt="">
+      <li>Samsung | Up to 60%</li>
+      <img src="asset/Oneplus_brand.png" alt="">
+      <li>OnePlus | Up to 50%</li>
+      <img src="asset/MI_brand.png" alt="">
+      <li>Realme | Up to 40%</li>
+      <a href="mobile.html">see more</a>
+    </ul>
+  </div>
+
+  <div class="category" >
+    <h3>Smartphone for u</h3>
+    <ul>
+      <img src="asset/smartphone.jpeg" alt="">
+      <li>Budget | Under ₹10,000</li>
+      <img src="asset/smartphone1.jpeg" alt="">
+      <li>Mid-range | ₹10,000 - ₹25,000</li>
+      <img src="asset/smartphone2.jpeg" alt="">
+      <li>Premium | Above ₹25,000</li>
+      <img src="asset/smartphone3.jpeg" alt="">
+      <li>Flagship | Above ₹50,000</li>
+      <a href="mobile.html">see more</a>
+    </ul>
+  </div>
+
+  <div class="category" >
+    <h3>Home & kitchen Appliances</h3>
+    <ul>
+      <img src="asset/kitchen.jpeg" alt="">
+      <li>Kitchen essentials</li>
+      <img src="asset/kitchen1.jpeg" alt="">
+      <li>Home decor</li>
+      <a href="homeappliances.html">see more</a>
+    </ul>
+  </div>
+
+  <div class="category" >
+    <h3>Sports & more</h3>
+    <ul>
+      <img src="asset/sport.jpeg" alt="">
+      <li>Sports & fitness</li>
+      <img src="asset/sport1.jpeg" alt="">
+      <li>Automotive</li>
+      <a href="">see more</a>
+    </ul>
+  </div>
+<!-- sample product-->
+ 
+  <div class="category" data-name="Air Conditioner" data-price="499">
+    <img src="asset/Ac.jpeg" alt="">
+    <h3>Air Conditioner</h3>
+    <p>Price: $499</p>
+  </div>
+  <div class="category" data-name="Fashion Item 1" data-price="59">
+    <img src="asset/fashion1.jpeg" alt="">
+    <h3>Fashion Item 1</h3>
+    <p>Price: $59</p>
+  </div>
+  <div class="category" data-name="Fashion Item 2" data-price="79">
+    <img src="asset/fashion.jpeg" alt="">
+    <h3>Fashion Item 2</h3>
+    <p>Price: $79</p>
+  </div>
+  <div class="category" data-name="Gaming Console" data-price="299">
+    <img src="asset/games.jpeg" alt="">
+    <h3>Gaming Console</h3>
+    <p>Price: $299</p>
+  </div>
+  <div class="category" data-name="Cosmetics" data-price="25">
+    <img src="asset/cosmatic.jpeg" alt="">
+    <h3>Cosmetics</h3>
+    <p>Price: $25</p>
+  </div>
+  <div class="category" data-name="Mobile Phone" data-price="699">
+    <img src="asset/mobile.jpeg" alt="">
+    <h3>Mobile Phone</h3>
+    <p>Price: $699</p>
+  </div>
+  <div class="category" data-name="Shoes" data-price="89">
+    <img src="asset/shoes.jpeg" alt="">
+    <h3>Shoes</h3>
+    <p>Price: $89</p>
+  </div>
+  <div class="category" data-name="Air Conditioner 2" data-price="599">
+    <img src="asset/Ac1.jpeg" alt="">
+    <h3>Air Conditioner 2</h3>
+    <p>Price: $599</p>
+  </div>
+  <div class="category" data-name="Cosmetics Set" data-price="35">
+    <img src="asset/cosmatic1.jpeg" alt="">
+    <h3>Cosmetics Set</h3>
+    <p>Price: $35</p>
+  </div>
+  <div class="category" data-name="Fashion Item 3" data-price="49">
+    <img src="asset/fashion1.jpeg" alt="">
+    <h3>Fashion Item 3</h3>
+    <p>Price: $49</p>
+  </div>
+  <div class="category" data-name="Shoes 2" data-price="99">
+    <img src="asset/shoes1.jpeg" alt="">
+    <h3>Shoes 2</h3>
+    <p>Price: $99</p>
+  </div>
+  <div  class="category" data-name="" data-price="">
+    <!-- ...header, nav, hero... -->
+    <main id="product-container" class="categories"></main>
+    
+    <!-- ...footer or other content... -->
+  </div>
+  <div class="category" data-name="See More" data-price="">
+    <img src="" alt="">
+    <h2><a href="/see more">See More</a></h2>
+  </div>
+</main>
